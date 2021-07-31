@@ -10,31 +10,31 @@
 
     </div>
     @if (strlen($search) > 2)
-    <div class="absolute bg-gray-800 rounded w-64 mt-4 text-sm">
-        @if ($searchResults->count() > 0)
-        <ul>
-            @foreach ($searchResults as $result)
-                <li class="border-b border-gray-700">
-                    <a class="block hover:bg-gray-700 px-3 py-3 flex items-center" href="{{route('movies.show', $result['id'])}}">
-                        @if ($result['poster_path'])
-                             <span><img src="https://image.tmdb.org/t/p/w92/{{$result['poster_path']}}" class="w-8" alt="movie"></span>
-                        @else
-                        <span><img src="https://image.tmdb.org/t/p/w92/{{$result['poster_path']}}" class="w-8" alt="movie"></span>
-                        @endif
-                       
-                        <span class="ml-4">{{$result['title']}}</span>
-                    </a>
-                </li>
-            @endforeach
-           
-        </ul>
-        @else
-            <div class="px-3 py-3">
-                No results found for "{{$search }}"
-            </div>
-        @endif
-        
-    </div>
+        <div class="absolute bg-gray-800 rounded w-64 mt-4 text-sm">
+            @if ($searchResults->count() > 0)
+            <ul>
+                @foreach ($searchResults as $result)
+                    <li class="border-b border-gray-700">
+                        <a class=" hover:bg-gray-700 px-3 py-3 flex items-center" href="{{route('movies.show', $result['id'])}}">
+                            @if ($result['poster_path'])
+                                <span><img src="https://image.tmdb.org/t/p/w92/{{$result['poster_path']}}" class="w-8" alt="movie"></span>
+                            @else
+                            <span><img src="https://via.placeholder.com/150" class="w-8" alt="movie"></span>
+                            @endif
+                        
+                            <span class="ml-4">{{$result['title']}}</span>
+                        </a>
+                    </li>
+                @endforeach
+            
+            </ul>
+            @else
+                <div class="px-3 py-3">
+                    No results found for "{{$search }}"
+                </div>
+            @endif
+            
+        </div>
     @endif
     
 </div>
