@@ -1,13 +1,25 @@
 
     <div class="relative mt-4 md:mt-0" x-data="{isOpen: true}" @click.away="isOpen = false">
-        <input wire:model.debounce.500ms="search" type="text" class="bg-gray-800 text-sm rounded-full w-64 px-4 py-1 p-3 pl-8 focus:outline-none focus:shadow-outline" placeholder="Search">
+        <input 
+        @focus="isOpen = true"
+        @keydown.escape.window="isOpen = false"
+        @keydown.shift.tab="isOpen = false"
+        wire:model.debounce.500ms="search" type="text" 
+        class="bg-gray-800 text-sm rounded-full w-64 px-4 py-1 p-3 pl-8 focus:outline-none focus:shadow-outline" 
+        placeholder="Search">
         <div class="absolute top-0">
             <i style="font-size: 12px;" class="icofont icofont-search fill-current text-gray-500   ml-3 "></i>
         </div>
         <div wire:loading class="spinner top-0 right-0 mr-4 mt-4">
     </div>
     @if (strlen($search) > 2)
-    <div class="absolute bg-gray-800 rounded w-64 mt-4 text-sm" x-show="isOpen">
+    <div  
+     class="z-50 absolute bg-gray-800 rounded w-64 mt-4 text-sm" 
+     x-show="isOpen"
+    
+   
+     
+     >
         @if ($searchResults->count() > 0)
         <ul>
             @foreach ($searchResults as $result)
