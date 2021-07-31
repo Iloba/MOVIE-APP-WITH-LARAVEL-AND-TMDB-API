@@ -2,20 +2,23 @@
 @section('content')
     <div class="movie-info border-b border-gray-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
-            <img src="{{asset('img/sample.JPG')}}" alt="movie" class="w-64 md:w-96" style="width: 24rem;">
+            <img src="{{'https://image.tmdb.org/t/p/w500/'.$movie['poster_path']}}" alt="movie" class="w-64 md:w-96" style="width: 24rem;">
             <div class="md:ml-24 mt-4 ">
-                <h2 class="text-4xl font-semibold">Parasite 2019</h2>
-                <div class="flex flex-wrap items-center text-gray-400 text-sm">
+                <h2 class="text-4xl font-semibold">{{$movie['title']}}</h2>
+                <div class="flex items-center text-gray-400 text-sm mt-1">
                     <span><i class="icofont icofont-star text-blue-500"></i></span>
-                    <span class="ml-1">85%</span>
+                    <span class="ml-1">{{$movie['vote_average'] * 10 . '%'}}</span>
                     <span class="mx-2">|</span>
-                    
-                    <span>Feb 20, 2020</span>
+                    <span class="">{{\Carbon\Carbon::parse($movie['release_date'])->format('M d, Y')}}</span>
                     <span class="mx-2">|</span>
-                    <span>Action, Thriller, Comedy</span>
+                    <span>
+                        @foreach ($movie['genres'] as $genre)
+                            {{$genre['name']}} @if ($loop->last) , @endif
+                        @endforeach
+                    </span>
                 </div>
                 <p class="mt-10 text-gray-300 ">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic officia sed officiis consequuntur deleniti illo sapiente nam expedita architecto ut.
+                   {{$movie['overview']}}
                 </p>
                 <div class="mt-12">
                     <h4 class="text-white font-semibold">Featured Cast</h4>
