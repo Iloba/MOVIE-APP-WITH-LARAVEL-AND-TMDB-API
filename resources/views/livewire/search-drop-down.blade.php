@@ -5,6 +5,15 @@
         @keydown="isOpen = true"
         @keydown.escape.window="isOpen = false"
         @keydown.shift.tab="isOpen = false"
+        x-ref="search"
+        @keydown.window="
+
+        if(event.keyCode === 191){
+            event.preventDefault();
+            $refs.search.focus();
+        }
+
+        "
         wire:model.debounce.500ms="search" type="text" 
         class="bg-gray-800 text-sm rounded-full w-64 px-4 py-1 p-3 pl-8 focus:outline-none focus:shadow-outline" 
         placeholder="Search">
