@@ -23,26 +23,31 @@
                 <div class="mt-12">
                     <h4 class="text-white font-semibold">Featured Cast</h4>
                     <div class="flex mt-4">
-                        <div>
-                            <div>
-                                Emeka Timothy Iloba
+                        @foreach ($movie['credits']['crew'] as $crew)
+                        @if ($loop->index < 2)
+                            <div class="mr-8">
+                                <div>
+                                   {{$crew['name']}}
+                                </div>
+                                <div class="text-sm text-gray-400">{{$crew['job']}}</div>
                             </div>
-                            <div class="text-sm text-gray-400">Screenplay, Director, Story</div>
-                        </div>
-                        <div class="ml-8">
-                            <div>
-                               Victor Iloba
-                            </div>
-                            <div class="text-sm text-gray-400">Editing</div>
-                        </div>
+                        @endif
+                           
+                        @endforeach
+                       
+                        
                     </div>
                 </div>
-                <div class="mt-12">
-                    <button href="#" class="flex items-center bg-blue-500 text-white  font-semibold px-5 py-4 hover:bg-blue-600 transition ease-in-out duration-150">
-                        <span><i class="icofont icofont-star"></i></span>
-                        <span class="ml-2">Play Triller</span>
-                    </button>
-                </div>
+                @if ($movie['videos']['results'] > 0)
+                    <div class="mt-12">
+                        <a href="https://youtube.com/watch?v={{$movie['videos']['results'][0]['key']}}" 
+                        class=" inline-flex items-center bg-blue-500 text-white  font-semibold px-5 py-4 hover:bg-blue-600 transition ease-in-out duration-150">
+                            <span><i class="icofont icofont-star"></i></span>
+                            <span class="ml-2">Play Triller</span>
+                        </a>
+                    </div>
+                @endif
+                
             </div>
         </div>
     </div> 
@@ -50,66 +55,27 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Cast</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-2xl mt-2 hover:text-gray:300">Real Name</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                           John Smith
+                @foreach ($movie['credits']['cast'] as $cast)
+                    @if($loop->index < 5)
+                        <div class="mt-8">
+                            <a href="#">
+                                <img src="{{'https://image.tmdb.org/t/p/w500/'.$cast['profile_path']}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                            <div class="mt-2">
+                                <a href="#" class="text-2xl mt-2 hover:text-gray:300">{{$cast['name']}}</a>
+                            
+                                <div class="text-gray-400 text-sm">
+                                {{$cast['character']}}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-2xl mt-2 hover:text-gray:300">Real Name</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                           John Smith
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-2xl mt-2 hover:text-gray:300">Real Name</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                           John Smith
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-2xl mt-2 hover:text-gray:300">Real Name</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                           John Smith
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-2xl mt-2 hover:text-gray:300">Real Name</a>
-                       
-                        <div class="text-gray-400 text-sm">
-                           John Smith
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                   
+                @endforeach
+              
+                
+               
+                
             </div>
         </div>
     </div>
@@ -118,42 +84,22 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                   
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                   
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="{{asset('img/sample.JPG')}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                   =
-                </div>
+                @foreach ($movie['images']['backdrops'] as $image)
+                    @if ($loop->index < 6)
+                        <div class="mt-8">
+                            <a href="#">
+                                <img src="{{'https://image.tmdb.org/t/p/w400/'.$image['file_path']}}" alt="movie" class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                            
+                        </div>
+                    @endif 
+                @endforeach
+               
+                
+               
+               
+               
+               
             </div>
         </div>
     </div> 
