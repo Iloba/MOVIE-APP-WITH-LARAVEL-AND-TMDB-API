@@ -24,31 +24,51 @@
                     <h4 class="text-white font-semibold">Featured Cast</h4>
                     <div class="flex mt-4">
                         @foreach ($movie['credits']['crew'] as $crew)
-                        @if ($loop->index < 2)
-                            <div class="mr-8">
-                                <div>
-                                   {{$crew['name']}}
+                            @if ($loop->index < 2)
+                                <div class="mr-8">
+                                    <div>
+                                    {{$crew['name']}}
+                                    </div>
+                                    <div class="text-sm text-gray-400">{{$crew['job']}}</div>
                                 </div>
-                                <div class="text-sm text-gray-400">{{$crew['job']}}</div>
-                            </div>
-                        @endif
-                           
+                            @endif
                         @endforeach
-                       
-                        
                     </div>
                 </div>
-                @if (count($movie['videos']['results']) > 0)
+                <div x-data="{isOpen: false}">
+                    @if (count($movie['videos']['results']) > 0)
                     <div class="mt-12">
-                        <a href="https://youtube.com/watch?v={{$movie['videos']['results'][0]['key']}}" 
+                        <button 
+                        @click="isOpen = true"
+                       
                         class=" inline-flex items-center bg-blue-500 text-white  font-semibold px-5 py-4 hover:bg-blue-600 transition ease-in-out duration-150">
                             <span><i class="icofont icofont-star"></i></span>
                             <span class="ml-2">Play Triller</span>
-                        </a>
+                    </button>
                     </div>
+
+                    <div style="background-color: rgba(0,0,0,.5)"
+                    x-show.transition.opacity="isOpen"
+                    class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto">
+                        <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
+                            <div class="flex justify-end pr-4 pt-2">
+                                <button @click="isOpen = false" class="text-3xl leading-none hover:text-gray-300">&times;</button>
+                            </div>
+                            <div class="modal-body px-8 py-8">
+                                <div class="responsive-container overflow-hidden relative" style="padding-top: 56.25%">
+                                    <iframe width="560" height="315" 
+                                    class="responsive-iframe absolute top-0 left-0 w-full h-full" 
+                                    src="https://www.youtube.com/embed/{{$movie['videos']['results'][0]['key']}}" style="border:0;" allow="autoplay; encrypted-media" allowfullscreen>
+                                </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
                 @else
                     <p>no video</p>
                 @endif
+                </div>
                 
             </div>
         </div>
