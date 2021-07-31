@@ -38,7 +38,7 @@
                         
                     </div>
                 </div>
-                @if ($movie['videos']['results'] > 0)
+                @if (count($movie['videos']['results']) > 0)
                     <div class="mt-12">
                         <a href="https://youtube.com/watch?v={{$movie['videos']['results'][0]['key']}}" 
                         class=" inline-flex items-center bg-blue-500 text-white  font-semibold px-5 py-4 hover:bg-blue-600 transition ease-in-out duration-150">
@@ -46,6 +46,8 @@
                             <span class="ml-2">Play Triller</span>
                         </a>
                     </div>
+                @else
+                    <p>no video</p>
                 @endif
                 
             </div>
