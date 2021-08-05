@@ -16,7 +16,7 @@
         "
         wire:model.debounce.500ms="search" type="text" 
         class="bg-gray-800 text-sm rounded-full w-64 px-4 py-1 p-3 pl-8 focus:outline-none focus:shadow-outline" 
-        placeholder="Search press / to focus">
+        placeholder="Search (press / to focus)">
         <div class="absolute top-0">
             <i style="font-size: 12px;" class="icofont icofont-search fill-current text-gray-500   ml-3 "></i>
         </div>
