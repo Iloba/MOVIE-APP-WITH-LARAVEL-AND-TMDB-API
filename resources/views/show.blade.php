@@ -31,6 +31,9 @@
                                     </div>
                                     <div class="text-sm text-gray-400">{{$crew['job']}}</div>
                                 </div>
+                            
+                            @else
+                                @break
                             @endif
                         @endforeach
                     </div>
@@ -47,9 +50,10 @@
                     </button>
                     </div>
 
+                    {{-- Modal --}}
                     <div style="background-color: rgba(0,0,0,.5)"
-                    x-show.transition.opacity="isOpen"
-                    class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto">
+                        x-show.transition.opacity="isOpen"
+                        class="fixed top-0 left-0 w-full h-full flex items-center shadow-lg overflow-y-auto">
                         <div class="container mx-auto lg:px-32 rounded-lg overflow-y-auto">
                             <div class="flex justify-end pr-4 pt-2">
                                 <button @click="isOpen = false" class="text-3xl leading-none hover:text-gray-300">&times;</button>
@@ -91,6 +95,8 @@
                                 </div>
                             </div>
                         </div>
+                    @else
+                    @break
                     @endif
                    
                 @endforeach
@@ -105,7 +111,7 @@
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10">
                 @foreach ($movie['images']['backdrops'] as $image)
-                    @if ($loop->index < 6)
+                    @if ($loop->index < 9)
                         <div class="mt-8">
                             <a href="#"
                             
@@ -122,6 +128,8 @@
                             </a>
                             
                         </div>
+                    @else
+                    @break
                     @endif 
                 @endforeach
             </div>

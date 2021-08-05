@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class MoviesController extends Controller
 {
-    //pass data to index view using http client storing token in an env variable
+    //pass data to index view using http client --- storing token in an env variable
     public function index(){
 
         $popularMovies = Http::withToken(config('services.tmdb.token'))
