@@ -28,7 +28,7 @@
                    <a href="#" class="md:ml-6 hover:text-gray-300">Tv Shows</a>
                </li>
                <li class="mt-4 md:mt-0">
-                   <a href="#" class="md:ml-6 hover:text-gray-300">Actors</a>
+                   <a href="{{route('actors.index')}}" class="md:ml-6 hover:text-gray-300">Actors</a>
                </li>
             </ul>
             <div class="flex flex-col md:flex-row items-center ">
