@@ -45,6 +45,7 @@
                         @endif
                     
                         <span class="ml-4">{{$result['title']}}</span>
+                        
                     </a>
                 </li>
             @endforeach
