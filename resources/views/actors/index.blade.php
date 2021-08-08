@@ -18,15 +18,19 @@
                             <div class="mt-2">
                                 <a href="#" class="text-lg hover:text-gray-300">{{$actor['name']}}</a>
                                 <div class="text-sm truncate text-gray-400">
-                                    @foreach ($actor['known_for'] as $known)
+                                    {{-- @foreach ($actor['known_for'] as $known) --}}
                                         {{-- {{$known}} --}}
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                 </div>
                             </div>
                         </div>
                     @endforeach
                    
                 </div>
+            </div>
+            <div class="flex justify-between mt-16">
+                <a href="#">Previous</a>
+                <a href="#">Next</a>
             </div>
         </div>
 @endsection

@@ -18,7 +18,8 @@ class ActorsController extends Controller
         // $viewModel = new ActorsViewModel($popularActors);
 
         return view('actors.index',[
-            'popularActors' => $popularActors
+            'popularActors' => $popularActors,
+            
         ]);
     }
 }
