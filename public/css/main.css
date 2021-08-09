@@ -188157,3 +188157,10 @@ video {
             animation: spinAround 500ms infinite linear;
   }
 }
+@media(max-width: 600px){
+  .mobile-responsive{
+    display: block;
+  margin: auto;
+  
+}
+}

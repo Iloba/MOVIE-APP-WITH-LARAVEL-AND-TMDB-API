@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div class="movie-info border-b border-gray-800">
-        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
+        <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row sm:justify-center">
             <img src="{{'https://image.tmdb.org/t/p/w500/'.$movie['poster_path']}}" alt="movie" class="w-64 md:w-96" style="width: 24rem;">
             <div class="md:ml-24 mt-4 ">
                 <h2 class="text-4xl font-semibold">{{$movie['title']}}</h2>
