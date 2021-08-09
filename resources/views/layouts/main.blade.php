@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Movie Application</title>
     <link rel="stylesheet" href="{{secure_asset('css/main.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('icofont/icofont/icofont.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('/icofont/icofont/icofont.min.css')}}">
     @livewireStyles
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 
